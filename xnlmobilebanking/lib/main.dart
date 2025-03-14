@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:xnlmobilebanking/SplashScreen.dart';
+import 'package:xnlmobilebanking/providers/auth_provider.dart';
 import 'package:xnlmobilebanking/screens/AccountScreen.dart';
 import 'package:xnlmobilebanking/screens/DashboardScreen.dart';
 import 'package:xnlmobilebanking/screens/LoginScreen.dart';
@@ -9,7 +11,14 @@ import 'package:xnlmobilebanking/screens/SignUpScreen.dart';
 import 'package:xnlmobilebanking/screens/TransactionScreen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => AuthProvider()),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -40,7 +49,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ProfileScreen(),
+      home: SplashScreen(),
     );
   }
 }

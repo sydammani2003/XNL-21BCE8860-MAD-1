@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:xnlmobilebanking/SplashScreen.dart';
 import 'package:xnlmobilebanking/components/hea_wig.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -253,7 +259,11 @@ class ProfileScreen extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => const SplashScreen()),
+          );
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFF0A2140),
           padding: const EdgeInsets.symmetric(vertical: 16.0),

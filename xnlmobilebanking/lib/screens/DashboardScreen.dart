@@ -38,7 +38,7 @@ class DashboardScreen extends StatelessWidget {
                 ),
               ),
             ),
-            _buildBottomNavigationBar(),
+            // _buildBottomNavigationBar(),
           ],
         ),
       ),
