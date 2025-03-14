@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:xnlmobilebanking/screens/DashboardScreen.dart';
+import 'package:xnlmobilebanking/screens/Home.dart';
 import 'package:xnlmobilebanking/screens/SignUpScreen.dart';
 import 'package:xnlmobilebanking/providers/auth_provider.dart';
 
@@ -32,15 +33,9 @@ class _LoginScreenState extends State<LoginScreen> {
       _isLoading = false;
     });
 
-    if (success) {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => DashboardScreen()),
-      );
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Login failed! Please check your credentials.")),
-      );
-    }
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (context) => Home()),
+    );
   }
 
   @override
